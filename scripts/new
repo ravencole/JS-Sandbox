@@ -16,5 +16,7 @@ if [ -d "src/${PROJECT_NAME}" ]; then
     exit 1
 else
     cp -r ./project_template ./src/$PROJECT_NAME
+    cd ./src/$PROJECT_NAME
+    npm i
     echo -e "${GREEN}$PROJECT_NAME created!"
 fi
