@@ -1,0 +1,20 @@
+#!/bin/bash
+
+NORM=`tput sgr0`
+BOLD=`tput bold`
+RED=$(tput setaf 1)
+WHITE=$(tput setaf 7)
+GREEN=$(tput setaf 2)
+BLACK=$(tput setaf 0)
+GREENBG=$(tput setab 2)
+BLACKBG=$(tput setab 0)
+
+PROJECT_NAME=$1
+
+if [ -d "src/${PROJECT_NAME}" ]; then
+    echo "${RED}${PROJECT_NAME} is already a project"
+    exit 1
+else
+    cp -r ./project_template ./src/$PROJECT_NAME
+    echo -e "${GREEN}$PROJECT_NAME created!"
+fi

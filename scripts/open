@@ -1,0 +1,22 @@
+#!/bin/bash
+
+NORM=`tput sgr0`
+BOLD=`tput bold`
+RED=$(tput setaf 1)
+WHITE=$(tput setaf 7)
+GREEN=$(tput setaf 2)
+BLACK=$(tput setaf 0)
+GREENBG=$(tput setab 2)
+BLACKBG=$(tput setab 0)
+
+PROJECT_NAME=$1
+QUITE=$2
+
+if [ -d "src/${PROJECT_NAME}" ]; then
+    babel-node ./src/${PROJECT_NAME}/server.js ${PROJECT_NAME} ${QUITE}
+    echo -e "${GREEN}damn dog, you write great code"
+    exit 0
+else
+    echo -e "${RED}\"$PROJECT_NAME\" does not exist"
+    exit 0
+fi

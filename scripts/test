@@ -1,0 +1,22 @@
+#!/bin/bash
+
+NORM=`tput sgr0`
+BOLD=`tput bold`
+RED=$(tput setaf 1)
+WHITE=$(tput setaf 7)
+GREEN=$(tput setaf 2)
+BLACK=$(tput setaf 0)
+GREENBG=$(tput setab 2)
+BLACKBG=$(tput setab 0)
+
+PROJECT_NAME=$1
+
+if [ -d "src/${PROJECT_NAME}" ]; then
+    echo -e "${GREEN}running tests..."
+    mocha --compilers js:babel-core/register ./src/${PROJECT_NAME}/tests/**/*.js --watch --growl --reporter spec
+    echo -e "${GREEN}Hope your tests went well..."
+    exit 0
+else 
+    echo -e "${RED}$PROJECT_NAME does not exist"
+    exit 1
+fi

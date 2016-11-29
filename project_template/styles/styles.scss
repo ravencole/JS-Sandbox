@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial;
+    font-weight: bold;
+    background-color: red;
+}
+h1 {
+    color: white;
+    margin: 0;
+    border: 10px solid white;
+    padding: 40px 120px;
+    text-shadow: 15px 15px 1px black;
+    box-shadow: 5px 5px 5px black,
+                inset 5px 5px 5px black;
+    background-color: rgba(255,255,255,.7)
+}
+.github {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

@@ -1,0 +1,92 @@
+#!/bin/bash
+
+NORM=`tput sgr0`
+BOLD=`tput bold`
+RED=$(tput setaf 1)
+WHITE=$(tput setaf 7)
+GREEN=$(tput setaf 2)
+BLACK=$(tput setaf 0)
+GREENBG=$(tput setab 2)
+BLACKBG=$(tput setab 0)
+
+ACTION_NAME=""
+PROJECT_NAME=""
+QUITE=false
+
+function openProject {
+    ./scripts/open $PROJECT_NAME $QUITE
+}
+
+function createNewProject {
+    ./scripts/new $PROJECT_NAME
+    if [ $? == 0 ]; then
+        openProject
+    else
+        exit 1
+    fi
+}
+
+function runTests {
+    ./scripts/test $PROJECT_NAME
+    if [ $? != 0 ]; then
+        exit 1
+    fi
+}
+
+function removeProject {
+    echo $PROJECT_NAME
+    ./scripts/remove $PROJECT_NAME
+}
+
+function listProjects {
+    ./scripts/list
+}
+
+function displayHelp {
+    ./scripts/displayHelp
+}
+
+if [ $# == 0 ]; then
+    echo -e "${RED}At least one argument has to be passed"
+    echo -e "${RED}Read the man page at \"npm start -- -h\""
+    exit 0
+fi
+
+ACTION_NAME=$1
+
+if [ $ACTION_NAME == "list" ]; then
+    listProjects
+    exit 0
+fi
+
+if [ $ACTION_NAME == "help" ]; then
+    displayHelp
+    exit 0
+fi
+
+if [ $# -lt 2 ]; then
+    echo -e "${RED}A project name must be passed as the second argument"
+    exit 1
+fi
+
+PROJECT_NAME=$2
+
+case $ACTION_NAME in
+    "open")
+        openProject
+        ;;
+    "new")
+        createNewProject
+        ;;
+    "test")
+        runTests
+        ;;
+    "remove")
+        removeProject
+        ;;
+    *)
+        echo -e "${RED}\"${ACTION_NAME}\" is not a valid action"
+        echo -e "${RED}Try running the \"help\" command"
+        exit 1
+        ;;
+esac

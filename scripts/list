@@ -1,0 +1,21 @@
+#!/bin/bash
+
+NORM=`tput sgr0`
+BOLD=`tput bold`
+RED=$(tput setaf 1)
+WHITE=$(tput setaf 7)
+GREEN=$(tput setaf 2)
+BLACK=$(tput setaf 0)
+GREENBG=$(tput setab 2)
+BLACKBG=$(tput setab 0)
+
+cd src
+shopt -s nullglob
+array=(*/)
+echo -e "${GREENBG}${BLACK}Projects list:${GREENBG}\n"
+for dir in "${array[@]}"; do 
+    colored="${GREENBG}${BLACK}${BOLD} ${dir:0:${#dir}-1}"
+    echo -e $colored
+    # printf "%20s | %${COLUMNS}s\n" "${colored}" "$(stat -f "%m%t%Sm %N" $dir)"
+done | column -t -s '|'
+cd ..

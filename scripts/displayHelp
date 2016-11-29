@@ -1,0 +1,35 @@
+#!/bin/bash
+
+GREEN=$(tput setaf 2)
+NORM=$(tput sgr0)${GREEN}
+BOLD=$(tput bold)
+RED=$(tput setaf 1)
+WHITE=$(tput setaf 7)
+BLACK=$(tput setaf 0)
+GREENBG=$(tput setab 2)
+BLACKBG=$(tput setab 0)
+
+echo "${GREEN}|------------------------------------------------|"
+echo "|                   -- ${BOLD}Help${NORM} --                   |"
+echo "| ${BOLD}Commands${NORM}:                                      |"
+echo "|                                                |"
+echo "|   ${BOLD}list${NORM}                                         |"
+echo "|     returns a list of created peojects         |"
+echo "|                                                |"
+echo "|   ${BOLD}help${NORM}                                         |"
+echo "|     render this help screen                    |"
+echo "|                                                |"
+echo "|   ${BOLD}new${NORM}    [ project name ]                      |"
+echo "|     creates a project within the src directory |"
+echo "|                                                |"
+echo "|   ${BOLD}open${NORM}   [ project name ]                      |"
+echo "|     opens project                              |"
+echo "|                                                |"
+echo "|   ${BOLD}remove${NORM} [ project name ]                      |"
+echo "|     removes project ( requires confirmation )  |"
+echo "|                                                |"
+echo "|   ${BOLD}test${NORM}   [ project name ]                      |"
+echo "|     runs all tests in watch mode for project   |"
+echo "|                                                |"
+echo "|------------------------------------------------|"
+exit 0
