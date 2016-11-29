@@ -12,8 +12,9 @@ BLACKBG=$(tput setab 0)
 PROJECT_NAME=$1
 
 if [ -d "src/${PROJECT_NAME}" ]; then
+    cd ./src/${PROJECT_NAME}
     echo -e "${GREEN}running tests..."
-    mocha --compilers js:babel-core/register ./src/${PROJECT_NAME}/tests/**/*.js --watch --growl --reporter spec
+    mocha
     echo -e "${GREEN}Hope your tests went well..."
     exit 0
 else 

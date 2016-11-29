@@ -1,0 +1,16 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "feel free to use this as a project level package.json, but the main reason its here is to help mocha not blow tf up",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-preset-latest": "^6.16.0",
+    "babel-register": "^6.18.0"
+  }
+}

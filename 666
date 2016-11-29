@@ -34,7 +34,6 @@ function runTests {
 }
 
 function removeProject {
-    echo $PROJECT_NAME
     ./scripts/remove $PROJECT_NAME
 }
 
