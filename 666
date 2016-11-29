@@ -48,7 +48,7 @@ function displayHelp {
 
 if [ $# == 0 ]; then
     echo -e "${RED}At least one argument has to be passed"
-    echo -e "${RED}Read the man page at \"npm start -- -h\""
+    echo -e "${RED}Summon the help page with \"666 help\""
     exit 0
 fi
 
